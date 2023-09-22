@@ -1,7 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:calculadora_imc/validators.dart' as validator;
+import 'package:calculadora_imc/service/validators.dart';
 
 void main() {
+  final validator = Validators();
   group('Validators', () {
     test('Teste de validação nome vazio', () {
       final result = validator.validateNome('');
