@@ -1,32 +1,22 @@
+import 'package:calculadora_imc/repositories/pessoa_repository.dart';
+import 'package:calculadora_imc/utils/unique_id_generator.dart';
 import 'package:calculadora_imc/utils/utils_string.dart' as util_str;
 
 class Pessoa {
+  int _id = 0;
   double _peso = 0.00;
   double _altura = 0.00;
   String _nome = "";
-  double _imc = 0.00;
 
   //construtor
-  Pessoa(String nome, double peso, double altura, double imc) {
+  Pessoa(String nome, double peso, double altura) {
     _nome = nome;
     _peso = peso;
     _altura = altura;
-    _imc = imc;
+    _id = UniqueIdGenerator.generateUniqueId(PessoaRepository().retornaIds());
   }
 
-  void setImc(imc) {
-    _imc = imc;
-  }
-
-  double getImc() {
-    return _imc;
-  }
-
-  //exibição
-  String getImcDuasCasasDecimais() {
-    return _imc.toStringAsFixed(2); // "22.46"
-    /*(double valorFormatado = (valor * math.pow(10, 2)).round() / math.pow(10, 2))*/
-  }
+  int get id => _id;
 
   //sobrescrita
   @override
@@ -35,11 +25,11 @@ class Pessoa {
       "Nome": _nome,
       "Peso": _peso,
       "Altura": _altura,
-      "IMC": _imc,
+      "Id": _id,
     }.toString();
   }
 
-  void setNome(String nome) {
+  set nome(String nome) {
     _nome = nome;
   }
 
@@ -50,19 +40,16 @@ class Pessoa {
     return util_str.primeiraLetraMaiuscula(_nome);
   }
 
-  void setPeso(double peso) {
+  set peso(double peso) {
     _peso = peso;
   }
 
-  double getPeso() {
-    return _peso;
-  }
+  double get peso => _peso;
 
-  void setAltura(double altura) {
+  set altura(double altura) {
     _altura = altura;
   }
 
-  double getAltura() {
-    return _altura;
-  }
+  double get altura => _altura;
+
 }
