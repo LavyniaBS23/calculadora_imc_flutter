@@ -24,7 +24,8 @@ class _CalcularImcPageState extends State<CalcularImcPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController nomeController = TextEditingController(text: "");
   final TextEditingController pesoController = TextEditingController(text: "");
-  final TextEditingController alturaController = TextEditingController(text: "");
+  final TextEditingController alturaController =
+      TextEditingController(text: "");
   final Validators validator = Validators();
   final PessoaRepository pessoaRepository = PessoaRepository();
   final ImcService imcService = ImcService();
@@ -56,9 +57,7 @@ class _CalcularImcPageState extends State<CalcularImcPage> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: pessoa != null
-            ? _buildResultado()
-            : _buildFormulario(),
+        child: pessoa != null ? _buildResultado() : _buildFormulario(),
       ),
     );
   }
@@ -102,7 +101,8 @@ class _CalcularImcPageState extends State<CalcularImcPage> {
             style: TextStyle(fontSize: 14),
           ),
           const SizedBox(height: 10),
-          _buildInput('Nome', nomeController, 'nome_input_key', validator.validateNome),
+          _buildInput(
+              'Nome', nomeController, 'nome_input_key', validator.validateNome),
           _buildInput(
             'Peso (kg)',
             pesoController,
