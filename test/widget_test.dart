@@ -116,7 +116,11 @@ Future<Map<String, Finder>> configureApp(WidgetTester tester) async {
   // Encontra e pressiona o botão que leva à página de cálculo de IMC
   await tester.tap(find.text('Novo Calculo'));
 
-  // Aguarda a transição para a página de cálculo de IMC
+  await tester.pumpAndSettle();
+
+  await tester.tap(find.text('Para mim'));
+
+  // Aguarda a transição para a página
   await tester.pumpAndSettle();
 
   // Encontre os widgets TextFormField pela Key

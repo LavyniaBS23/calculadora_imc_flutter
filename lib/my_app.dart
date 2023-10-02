@@ -1,4 +1,5 @@
 import 'package:calculadora_imc/pages/main_page.dart';
+import 'package:calculadora_imc/pages/main_sqlite_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         //textTheme: GoogleFonts.robotoTextTheme()
       ),
-      home: const MainPage(),
+      home: const MainSQLitePage(),
     );
   }
 }
